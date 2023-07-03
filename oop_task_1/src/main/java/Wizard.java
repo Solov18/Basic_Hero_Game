@@ -5,4 +5,12 @@ public abstract class Wizard extends BasicHero {
         this.heal = heal;
     }
    public int heal;
+    @Override
+    public String getInfo() {
+        return ("Name: " + name +" , " + "Type: " + type);
+    }
+
+    @Override
+    public void step() {
+    }
 }

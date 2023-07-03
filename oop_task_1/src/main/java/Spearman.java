@@ -1,5 +1,5 @@
-public class Spearman extends Infantry{
+public class Spearman extends Infantry{ // Копейщик
     public Spearman(String name) {
-        super(8, name, "Spearman", 5, 6);
+        super(1, name, "Spearman", 5, 6);
     }
 }

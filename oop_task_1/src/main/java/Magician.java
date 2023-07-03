@@ -1,5 +1,5 @@
-public class Magician extends Wizard {
+public class Magician extends Wizard { // Маг
     public Magician(String name) {
-        super(1, name, "Magician", 7, 5, 2);
+        super(6, name, "Magician", 7, 5, 2);
     }
 }

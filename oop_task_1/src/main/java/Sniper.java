@@ -1,5 +1,5 @@
-public class Sniper extends Shooter{
+public class Sniper extends Shooter{ // Снайпер
     public Sniper(String name) {
-        super(4, name, "Sniper", 6, 10);
+        super(2, name, "Sniper", 6, 10);
     }
 }

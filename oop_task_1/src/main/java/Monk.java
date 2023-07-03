@@ -1,6 +1,6 @@
-public class Monk extends Wizard  {
+public class Monk extends Wizard  { // Монах
     public Monk( String name) {
-        super(0, name, "Monk", 7, 5, 2);
+        super(5, name, "Monk", 7, 5, 2);
     }
 
 }

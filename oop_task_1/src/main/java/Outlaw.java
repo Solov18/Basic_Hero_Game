@@ -1,5 +1,5 @@
-public class Outlaw extends Infantry{
+public class Outlaw extends Infantry{ //Разбойник
     public Outlaw(String name) {
-        super(3, name, "Outlaw", 5, 6);
+        super(4, name, "Outlaw", 5, 6);
     }
 }
