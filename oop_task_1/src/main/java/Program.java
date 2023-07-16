@@ -1,6 +1,7 @@
 import unit.*;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Random;
 
 public class Program {
@@ -37,18 +38,39 @@ public class Program {
                     break;
                 case 2:people.add(new Sniper(getName(), 0,new Random().nextInt(0, 50)));
                     break;
-                case 3:people.add(new Peasant(getName(), 0,new Random().nextInt(0, 50) ));
+                case 3:people.add(new Peasant(getName(),0,new Random().nextInt(0, 50) ));
                     break;
 
             }
         }
+        ArrayList<BasicHero> unitedTeam = new ArrayList<>();
+        unitedTeam.addAll(people);
+        unitedTeam.addAll(horde);
+        unitedTeam.sort((o1, o2) -> o2.getInitiative() - o1.getInitiative());
+
         System.out.println("Команда Орда ");
         horde.forEach(i -> System.out.println(i.getInfo()));
         System.out.println("Команда Люди ");
         people.forEach(j -> System.out.println(j.getInfo()));
 
-        people.forEach(n-> n.step(horde));
-        horde.forEach(n-> n.step(people));
+        for (BasicHero item : unitedTeam) {
+            if (people.contains(item)){
+                item.step(horde, people);
+            } else {
+                item.step(people, horde);
+            }
+            System.out.println(item.getInitiative());
+
+        }
+
+
+        System.out.println("_".repeat(40));
+
+        System.out.println("Команда Орда ");
+        horde.forEach(i -> System.out.println(i.getInfo()));
+        System.out.println("Команда Люди ");
+        people.forEach(j -> System.out.println(j.getInfo()));
+
     }
 
 
