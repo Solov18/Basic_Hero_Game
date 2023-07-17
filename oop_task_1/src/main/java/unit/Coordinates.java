@@ -1,7 +1,9 @@
 package unit;
 
 public class Coordinates {
-    public Coordinates(int x, int y) {
+    public int x;
+    public int y;
+    public Coordinates( int x, int y) {
         this.x = x;
         this.y = y;
     }
@@ -12,8 +14,6 @@ public class Coordinates {
 
 
     }
-    int x;
-    int y;
 
 
 

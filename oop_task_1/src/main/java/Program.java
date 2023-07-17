@@ -5,53 +5,52 @@ import java.util.Comparator;
 import java.util.Random;
 
 public class Program {
+   static ArrayList<BasicHero> unitedTeam = new ArrayList<>();
+   static ArrayList<BasicHero> horde = new ArrayList<>();
+   static ArrayList<BasicHero> people = new ArrayList<>();
+
     private static String getName() {
         return String.valueOf(Names.values()[new Random().nextInt(Names.values().length)]);
     }
     public static void main(String[] args){
 
-        ArrayList<BasicHero> horde = new ArrayList<>();
-        ArrayList<BasicHero> people = new ArrayList<>();
-
-        for (int i = 0; i< 10; i++){
+        for (int i = 1; i< 11; i++){
             int a = new Random().nextInt(0,4);
 
             switch (a){
-                case 0:horde.add(new Magician(getName(), 9,new Random().nextInt(0, 50) ));
+                case 0:horde.add(new Magician(getName(), 1,i) );
                 break;
-                case 1:horde.add(new Outlaw(getName(), 9,new Random().nextInt(0, 50) ));
+                case 1:horde.add(new Outlaw(getName(), 1,i));
                     break;
-                case 2:horde.add(new Crossbowman(getName(), 9,new Random().nextInt(0, 50) ));
+                case 2:horde.add(new Crossbowman(getName(), 1,i));
                     break;
-                case 3:horde.add(new Peasant(getName(), 9,new Random().nextInt(0, 50) ));
+                case 3:horde.add(new Peasant(getName(), 1,i));
                     break;
 
             }
         }
-        for (int j = 0; j < 10; j++){
+        for (int j = 1; j < 11; j++){
             int n = new Random().nextInt(0,4);
 
             switch (n){
-                case 0:people.add(new Monk(getName(), 0,new Random().nextInt(0, 50) ));
+                case 0:people.add(new Monk(getName(), 10,j));
                     break;
-                case 1:people.add(new Spearman(getName(), 0,new Random().nextInt(0, 50) ));
+                case 1:people.add(new Spearman(getName(), 10,j));
                     break;
-                case 2:people.add(new Sniper(getName(), 0,new Random().nextInt(0, 50)));
+                case 2:people.add(new Sniper(getName(), 10,j));
                     break;
-                case 3:people.add(new Peasant(getName(),0,new Random().nextInt(0, 50) ));
+                case 3:people.add(new Peasant(getName(),10,j));
                     break;
 
             }
         }
-        ArrayList<BasicHero> unitedTeam = new ArrayList<>();
+
         unitedTeam.addAll(people);
         unitedTeam.addAll(horde);
         unitedTeam.sort((o1, o2) -> o2.getInitiative() - o1.getInitiative());
 
-        System.out.println("Команда Орда ");
-        horde.forEach(i -> System.out.println(i.getInfo()));
-        System.out.println("Команда Люди ");
-        people.forEach(j -> System.out.println(j.getInfo()));
+
+        View.view();
 
         for (BasicHero item : unitedTeam) {
             if (people.contains(item)){
@@ -59,17 +58,11 @@ public class Program {
             } else {
                 item.step(people, horde);
             }
-            System.out.println(item.getInitiative());
+
 
         }
+        View.view();
 
-
-        System.out.println("_".repeat(40));
-
-        System.out.println("Команда Орда ");
-        horde.forEach(i -> System.out.println(i.getInfo()));
-        System.out.println("Команда Люди ");
-        people.forEach(j -> System.out.println(j.getInfo()));
 
     }
 

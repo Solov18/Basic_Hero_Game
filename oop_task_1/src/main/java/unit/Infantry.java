@@ -12,8 +12,8 @@ public abstract class Infantry extends BasicHero { // Пехота
 
     @Override
     public String getInfo() {
-        return ("Name: " + name +" , " +" HealLevel: " + healthLevel + " , " + "Initiative: " + initiative + " , "
-                + "Type: " + type +" , " + "X = " + place.x + " , " + "Y = " + place.y  );
+        return (name +" , " +" \u2661 " + healthLevel + " , "
+                + "Type: " + type  );
     }
 
     @Override
