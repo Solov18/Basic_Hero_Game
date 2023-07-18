@@ -22,8 +22,8 @@ public abstract class Shooter extends BasicHero {
     @Override
     public void step(ArrayList<BasicHero> enemies,ArrayList<BasicHero> ours) {
         if (this.healthLevel <=0 || this.shots ==0) return;
-        BasicHero temp = findNameEnemy(enemies);
-        temp.healthLevel = temp.healthLevel - this.attackLevelBasic;
+        BasicHero nearestEnemy = findNameEnemy(enemies);
+        nearestEnemy.getDamage(this.attackLevelBasic);
 
         for (BasicHero item:ours) {
             if (item.type.contains("Peasant") && !((Peasant)(item)).busy
